@@ -20,7 +20,7 @@ const int stepsPerRevolution = 800;  // change this to fit the number of steps p
 // for your motor
 
 // initialize the Stepper library on pins 8 through 11:
-Stepper myStepper(stepsPerRevolution, 9, 8);
+Stepper myStepper(stepsPerRevolution, 8, 9);
 
 void setup() {
   // set the speed at 60 rpm:
@@ -32,11 +32,11 @@ void setup() {
 void loop() {
   // step one revolution in one direction:
   Serial.println("clockwise");
-  myStepper.step(stepsPerRevolution * 10);
+  myStepper.step(stepsPerRevolution);
   delay(500);
 
   // step one revolution in the other direction:
   Serial.println("counterclockwise");
-  myStepper.step(-stepsPerRevolution * 10);
+  myStepper.step(-stepsPerRevolution);
   delay(500);
 }
