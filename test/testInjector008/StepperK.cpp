@@ -106,5 +106,5 @@ void Stepper::stepController(int dir) {
 */
 int Stepper::version(void)
 {
-  return 9;
+  return 6;
 }
