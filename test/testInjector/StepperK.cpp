@@ -72,11 +72,9 @@ void StepperK::step(int steps_to_move)
       }
       // decrement the steps left:
       steps_left--;
-      // step the motor to step number 0, 1, ..., {3 or 10}
-      if (this->pin_count == 5)
-        stepController(direction);
-      else
-        stepController(direction);
+      // tell the driver to make one step:
+      stepController(direction);
+
     }
   }
 }
@@ -100,5 +98,5 @@ void StepperK::stepController(int dir) {
 */
 int StepperK::version(void)
 {
-  return 10;
+  return 11;
 }
