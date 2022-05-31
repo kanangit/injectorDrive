@@ -1,5 +1,7 @@
 /*
 
+testing the new class StepperK
+
  */
 
 #include "StepperK.h"
