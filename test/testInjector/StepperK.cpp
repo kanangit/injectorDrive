@@ -98,5 +98,5 @@ void StepperK::stepController(int dir) {
 */
 int StepperK::version(void)
 {
-  return 11;
+  return 14;
 }
