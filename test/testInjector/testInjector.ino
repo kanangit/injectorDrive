@@ -9,7 +9,7 @@ testing the new class StepperK
 const int stepsPerRevolution = 800;  // change this to fit the number of steps per revolution
 // for your motor
 
-// initialize the Stepper library on pins 8 through 11:
+// initialize the Stepper library on pins 9 and 8:
 StepperK myStepper(stepsPerRevolution, 9, 8);
 
 void setup() {
