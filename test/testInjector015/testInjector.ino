@@ -13,8 +13,8 @@ const int stepsPerRevolution = 800;  // change this to fit the number of steps p
 StepperK myStepper(stepsPerRevolution, 9, 8);
 
 void setup() {
-  // set the speed at xx rpm:
-  myStepper.setSpeed(1);
+  // set the speed at 60 rpm:
+  myStepper.setSpeed(60);
   // initialize the serial port:
   Serial.begin(9600);
 }
