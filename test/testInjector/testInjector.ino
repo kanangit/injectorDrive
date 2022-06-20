@@ -1,7 +1,7 @@
 /*
 
 testing the new class StepperK
-
+scukko
  */
 
 #include "StepperK.h"
