@@ -16,6 +16,8 @@ StepperK::StepperK(int number_of_steps, int pin_PU, int pin_DR)
   this->pin_PU = pin_PU;
   this->pin_DR = pin_DR;
 
+// Arduino pins for limit swithches
+
   // setup the pins on the microcontroller:
   pinMode(this->pin_PU, OUTPUT);
   pinMode(this->pin_DR, OUTPUT);
@@ -86,10 +88,16 @@ void StepperK::step(int steps_to_move)
 void StepperK::stepController(int dir) {
   digitalWrite(pin_PU, HIGH);
   if (dir == 0)
+  {
         digitalWrite(pin_DR, LOW);
+        digitalWrite(pin_PU, LOW);
+  }
       else
+      {
         digitalWrite(pin_DR, HIGH);
-  digitalWrite(pin_PU, LOW);
+        digitalWrite(pin_PU, LOW);
+      }
+  
 
 }
 
