@@ -33,7 +33,7 @@
 class StepperK {
   public:
     // constructors:
-    StepperK(int number_of_steps, int pin_PU, int pin_DR);
+    StepperK(int number_of_steps, int pin_PU, int pin_DR, int pin_LS_CW, int pin_LS_CCW);
 
     // speed setter method:
     void setSpeed(long whatSpeed);
@@ -57,6 +57,8 @@ class StepperK {
     // motor pin numbers:
     int pin_PU;
     int pin_DR;
+    int pin_LS_CW;
+    int pin_LS_CCW;
 
     unsigned long last_step_time; // timestamp in us of when the last step was taken
 };
