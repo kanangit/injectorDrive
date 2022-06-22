@@ -114,7 +114,6 @@ void StepperK::stepController(int dir)
     {
       digitalWrite(pin_DR, HIGH);
       digitalWrite(pin_PU, LOW);
-      // khuj
     }
   }
 }
@@ -124,5 +123,5 @@ void StepperK::stepController(int dir)
 */
 int StepperK::version(void)
 {
-  return 14;
+  return 18;
 }
