@@ -5,8 +5,7 @@
  * two-wire constructor.
  * Sets which wires should control the motor.
  */
-StepperK::StepperK(int number_of_steps, int pin_PU, int pin_DR,
-                   int pin_LS_CW, int pin_LS_CCW)
+StepperK::StepperK(int number_of_steps, int pin_PU, int pin_DR, int pin_LS_CW, int pin_LS_CCW)
 {
   this->step_number = 0;                   // which step the motor is on
   this->direction = 0;                     // motor direction
@@ -124,5 +123,5 @@ void StepperK::stepController(int dir)
 */
 int StepperK::version(void)
 {
-  return 20;
+  return 18;
 }
