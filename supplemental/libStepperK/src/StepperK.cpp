@@ -5,7 +5,8 @@
  * two-wire constructor.
  * Sets which wires should control the motor.
  */
-StepperK::StepperK(int number_of_steps, int pin_PU, int pin_DR, int pin_LS_CW, int pin_LS_CCW)
+StepperK::StepperK(int number_of_steps, int pin_PU, int pin_DR,
+                   int pin_LS_CW, int pin_LS_CCW, int pin_MF)
 {
   this->step_number = 0;                   // which step the motor is on
   this->direction = 0;                     // motor direction
@@ -15,6 +16,7 @@ StepperK::StepperK(int number_of_steps, int pin_PU, int pin_DR, int pin_LS_CW, i
   // Arduino pins for the motor control connection:
   this->pin_PU = pin_PU;
   this->pin_DR = pin_DR;
+  this->pin_MF = pin_MF;
 
   // Arduino pins for limit swithches
   /* clocwise (when looking at the tip of the shaft of the motor)
@@ -25,6 +27,7 @@ StepperK::StepperK(int number_of_steps, int pin_PU, int pin_DR, int pin_LS_CW, i
   // setup the pins on the microcontroller:
   pinMode(this->pin_PU, OUTPUT);
   pinMode(this->pin_DR, OUTPUT);
+  pinMode(this->pin_MF, OUTPUT);
   pinMode(pin_LS_CW, INPUT_PULLUP);
   pinMode(pin_LS_CCW, INPUT_PULLUP);
   pin_count = 2;
@@ -45,6 +48,7 @@ void StepperK::setSpeed(long whatSpeed)
 void StepperK::step(int steps_to_move)
 {
   int steps_left = abs(steps_to_move); // how many steps to take
+  digitalWrite(pin_MF, HIGH);          // activate the motor
 
   // determine direction based on whether steps_to_mode is + or -:
   if (steps_to_move > 0)

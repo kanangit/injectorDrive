@@ -30,38 +30,39 @@
 #define StepperK_h
 
 // library interface description
-class StepperK {
-  public:
-    // constructors:
-    StepperK(int number_of_steps, int pin_PU, int pin_DR, int pin_LS_CW, int pin_LS_CCW);
+class StepperK
+{
+public:
+  // constructors:
+  StepperK(int number_of_steps, int pin_PU, int pin_DR,
+           int pin_LS_CW, int pin_LS_CCW, int pin_MF);
 
-    // speed setter method:
-    void setSpeed(long whatSpeed);
+  // speed setter method:
+  void setSpeed(long whatSpeed);
 
-    // mover method:
-    void step(int number_of_steps);
+  // mover method:
+  void step(int number_of_steps);
 
-    int version(void);
+  int version(void);
 
-  private:
-   
-    void stepController(int dir); // in case an external controller takes 
-    //care of the step sequence
+private:
+  void stepController(int dir); // in case an external controller takes
+  // care of the step sequence
 
-    int direction;            // Direction of rotation
-    unsigned long step_delay; // delay between steps, in ms, based on speed
-    int number_of_steps;      // total number of steps this motor can take
-    int step_number;          // which step the motor is on
-    int pin_count;
+  int direction;            // Direction of rotation
+  unsigned long step_delay; // delay between steps, in ms, based on speed
+  int number_of_steps;      // total number of steps this motor can take
+  int step_number;          // which step the motor is on
+  int pin_count;
 
-    // motor pin numbers:
-    int pin_PU;
-    int pin_DR;
-    int pin_LS_CW;
-    int pin_LS_CCW;
+  // motor pin numbers:
+  int pin_PU;
+  int pin_DR;
+  int pin_LS_CW;
+  int pin_LS_CCW;
+  int pin_MF;
 
-    unsigned long last_step_time; // timestamp in us of when the last step was taken
+  unsigned long last_step_time; // timestamp in us of when the last step was taken
 };
 
 #endif
-
