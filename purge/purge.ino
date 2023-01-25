@@ -1,4 +1,4 @@
-/* Code purging the syringe */
+/* Code for purging the syringe */
 
 // Defining the Arduino pin numbers:
 #define TRIGPIN 7
@@ -11,7 +11,7 @@
 
 #include "StepperK.h"
 
-int totalStepsAllowed = 2540;
+int totalStepsAllowed = 25600;
 int stepsTaken = 0;
 
 const int stepsPerRevolution = 800;  // change this to fit the number of steps per revolution
