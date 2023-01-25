@@ -1,4 +1,13 @@
-/* Code for inecting */
+/* Code purging the syringe */
+
+// Defining the Arduino pin numbers:
+#define TRIGPIN 7
+#define DIRPIN 8
+#define PUPIN 9
+#define LSCWPIN 10
+#define LSCCWPIN 11
+#define ACTIVATEMOTORPIN 12
+
 
 #include "StepperK.h"
 
@@ -6,12 +15,12 @@ const int stepsPerRevolution = 800;  // change this to fit the number of steps p
 // for your motor
 
 // initialize the StepperK library:
-StepperK myStepper(stepsPerRevolution, 9, 8, 10, 11, 12);
+StepperK myStepper(stepsPerRevolution, PUPIN, DIRPIN, LSCWPIN, LSCCWPIN, ACTIVATEMOTORPIN);
 
 //define the trigger pin
 const int trigPin = 7;
 
-int steps_travel =  -stepsPerRevolution * 15;
+int steps_travel =  stepsPerRevolution * 15;
 //int steps_travel =  25200;
 
 void setup() {
