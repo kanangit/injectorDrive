@@ -1,8 +1,7 @@
-/* Code for purging the syringe 
-The piston will travel all the way forward
+/* Code for filling the syringe up.
+The piston will travel all the way back
 
-code available:
-https://github.com/kanangit/injectorDrive
+code available at: https://github.com/kanangit/injectorDrive
 
 History
 
@@ -31,7 +30,7 @@ const int stepsPerRevolution = 800;  // change this to fit the number of steps p
 StepperK myStepper(stepsPerRevolution, PUPIN, DIRPIN, LSCWPIN, LSCCWPIN, ACTIVATEMOTORPIN);
 
 //int steps_travel =  stepsPerRevolution * 15;
-int steps_travel =  1;
+int steps_travel =  -1;
 
 void setup() {
 
@@ -45,7 +44,7 @@ void setup() {
 
 void loop() {
 // inject only if the trigger signal is received:
-  while ((stepsTaken < totalStepsAllowed) && (digitalRead(LSCWPIN) == LOW))
+  while ((stepsTaken < totalStepsAllowed) && (digitalRead(LSCCWPIN) == LOW))
   {
       myStepper.step(steps_travel);
       stepsTaken++;
